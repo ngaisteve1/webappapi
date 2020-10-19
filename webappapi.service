@@ -1,0 +1,15 @@
+﻿[Unit]
+Description=Movie app
+
+[Service]
+WorkingDirectory=/var/www/webappapi
+ExecStart=/usr/bin/dotnet /var/www/webappapi/bin/Debug/netcoreapp3.1/publish/webappapi.dll
+Restart=always
+RestartSec=10
+SyslogIdentifier=webapp
+User=steve
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target
